@@ -61,12 +61,12 @@ module.exports = base.extend({
       type   : 'input',
       name   : 'name',
       message: 'Name',
-      default: 'WDS Client Plugin Name'
+      default: 'Plugin Name'
     }, {
       type   : 'input',
       name   : 'homepage',
       message: 'Homepage',
-      default: 'https://webdevstudios.com',
+      default: 'https://marcoSven.com',
       store: true
     }, {
       type   : 'input',
@@ -77,26 +77,26 @@ module.exports = base.extend({
       type   : 'input',
       name   : 'version',
       message: 'Version',
-      default: '0.0.0'
+      default: '1.0.0'
     }, {
       type   : 'input',
       name   : 'author',
       message: 'Author',
-      default: 'WebDevStudios',
+      default: 'marcoSven',
       save   : true,
       store: true
     }, {
       type   : 'input',
       name   : 'authoremail',
       message: 'Author Email',
-      default: 'contact@webdevstudios.com',
+      default: 'me@marcoSven.com',
       save   : true,
       store: true
     }, {
       type   : 'input',
       name   : 'authorurl',
       message: 'Author URL',
-      default: 'https://webdevstudios.com',
+      default: 'https://marcoSven.com',
       save   : true,
       store: true
     }, {
@@ -182,10 +182,6 @@ module.exports = base.extend({
     },
 
     dotfiles: function() {
-      this.fs.copy(
-        this.templatePath('_bowerrc'),
-        this.destinationPath('/.bowerrc')
-      );
       this.fs.copyTpl(
         this.templatePath('_gitignore'),
         this.destinationPath('/.gitignore'),
@@ -210,11 +206,6 @@ module.exports = base.extend({
 
     configs: function() {
       this.fs.copyTpl(
-        this.templatePath('bower.json'),
-        this.destinationPath('/bower.json'),
-        this
-      );
-      this.fs.copyTpl(
         this.templatePath('package.json'),
         this.destinationPath('/package.json'),
         this
@@ -226,10 +217,6 @@ module.exports = base.extend({
           this
         );
       }
-      this.fs.copy(
-        this.templatePath('Gruntfile.js'),
-        this.destinationPath('/Gruntfile.js')
-      );
       this.fs.copy(
           this.templatePath('Gulpfile.js'),
           this.destinationPath('/Gulpfile.js')
@@ -243,7 +230,7 @@ module.exports = base.extend({
     php: function() {
       this.fs.copyTpl(
         this.templatePath('plugin.php'),
-        this.destinationPath('/' + this.slug + '.php'),
+        this.destinationPath('/class-' + this.slug + '.php'),
         this
       );
     },
@@ -340,12 +327,7 @@ module.exports = base.extend({
   },
 
   checkComposerStatus: function() {
-    var composerResult = child_process.spawnSync('composer',['--version', '--no-ansi']);
-
-    if ( 0 === composerResult.status) {
-      this.autoloaderList = ['Basic', 'Composer', 'None'];
-    }
-
+    this.autoloaderList = ['Basic', 'None'];
   },
 
   getLatestWPVersion: function() {
@@ -372,11 +354,6 @@ module.exports = base.extend({
     // If we flagged we want an install, install our dependecies.
     if ( this.options['do-install'] ) {
       this.installDependencies();
-
-      // If we're loading Composer, run a composer install.
-      if ( this.autoloader === 'Composer' ) {
-        this.spawnCommand('composer', ['install']);
-      }
     }
   }
 });

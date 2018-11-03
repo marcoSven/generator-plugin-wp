@@ -6,9 +6,6 @@
  * @package <%= mainclassname %>
  */
 
-/**
- * <%= pluginname %> Page Builder.
- */
 class <%= classname %> {
 	/**
 	 * Parent plugin class.

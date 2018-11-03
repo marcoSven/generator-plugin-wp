@@ -5,12 +5,6 @@
  * @since   <%= version %>
  * @package <%= mainclassname %>
  */
-
-/**
- * <%= cliname %>.
- *
- * @since <%= version %>
- */
 class <%= classname %> {
 	/**
 	 * Parent plugin class

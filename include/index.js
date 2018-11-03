@@ -52,7 +52,7 @@ module.exports = base.extend({
         type   : 'input',
         name   : 'version',
         message: 'Version',
-        default: '0.1.0'
+        default: '1.1.0'
       });
     }
 
@@ -70,7 +70,7 @@ module.exports = base.extend({
         type   : 'input',
         name   : 'pluginname',
         message: 'Plugin Name',
-        default: 'WDS Client Plugin'
+        default: 'Plugin'
       });
     }
 
@@ -105,7 +105,7 @@ module.exports = base.extend({
   writing: function () {
     this.fs.copyTpl(
       this.templatePath('include.php'),
-      this.destinationPath('includes/class-' + this._.slugify( this.name ) + '.php'),
+      this.destinationPath('includes/class-' + this._.slugify( this.rc.classprefix + '' + this.name ) + '.php'),
       this
     );
 

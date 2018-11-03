@@ -4,11 +4,11 @@
   "description": "Yeoman generator for WordPress plugins.",
   "license": "MIT",
   "main": "app/index.js",
-  "repository": "WebDevStudios/generator-plugin-wp",
+  "repository": "marcoSven/generator-plugin-wp",
   "author": {
-    "name": "WebDevStudios",
-    "email": "contact@WebDevStudios",
-    "url": "https://github.com/WebDevStudios/generator-plugin-wp"
+    "name": "marcoSven",
+    "email": "me@marcoSven.com",
+    "url": "https://marcoSven.com"
   },
   "engines": {
     "node": ">=0.10.0"

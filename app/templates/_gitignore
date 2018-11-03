@@ -1,7 +1,6 @@
 # Node/npm
 node_modules/
 npm-debug.log
-.grunt
 .sass-cache
 
 # OSX
@@ -53,8 +52,9 @@ lib-cov
 # Coverage directory used by tools like istanbul
 coverage
 
-# Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
-.grunt
+# Gulp #
+##########
+gulp-config.json
 
 # node-waf configuration
 .lock-wscript

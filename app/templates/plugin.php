@@ -16,10 +16,6 @@
  * @package <%= mainclassname %>
  * @version <%= version %>
  *
- * Built using generator-plugin-wp (https://github.com/WebDevStudios/generator-plugin-wp)
- */
-
-/**
  * Copyright (c) <%= year %> <%= author %> (email : <%= authoremail %>)
  *
  * This program is free software; you can redistribute it and/or modify
@@ -52,7 +48,7 @@ function <%= prefix %>_autoload_classes( $class_name ) {
 	}
 
 	// Set up our filename.
-	$filename = strtolower( str_replace( '_', '-', substr( $class_name, strlen( '<%= classprefix %>' ) ) ) );
+	$filename = strtolower( str_replace( '_', '-', $class_name ) );
 
 	// Include our file.
 	<%= classname %>::include_file( 'includes/class-' . $filename );
@@ -176,7 +172,7 @@ final class <%= classname %> {
 	 *
 	 * @since  <%= version %>
 	 */
-	public function _activate() {
+	public function activate() {
 		// Bail early if requirements aren't met.
 		if ( ! $this->check_requirements() ) {
 			return;
@@ -192,7 +188,7 @@ final class <%= classname %> {
 	 *
 	 * @since  <%= version %>
 	 */
-	public function _deactivate() {
+	public function deactivate() {
 		// Add deactivation cleanup functionality here.
 	}
 
@@ -276,6 +272,7 @@ final class <%= classname %> {
 	public function requirements_not_met_notice() {
 
 		// Compile default message.
+		/* translators: %s: admin plugins page */
 		$default_message = sprintf( __( '<%= name %> is missing requirements and has been <a href="%s">deactivated</a>. Please make sure all requirements are available.', '<%= slug %>' ), admin_url( 'plugins.php' ) );
 
 		// Default details to null.
@@ -328,7 +325,7 @@ final class <%= classname %> {
 	public static function include_file( $filename ) {
 		$file = self::dir( $filename . '.php' );
 		if ( file_exists( $file ) ) {
-			return include_once( $file );
+			return include_once $file;
 		}
 		return false;
 	}
@@ -377,5 +374,5 @@ function <%= prefix %>() {
 add_action( 'plugins_loaded', array( <%= prefix %>(), 'hooks' ) );
 
 // Activation and deactivation.
-register_activation_hook( __FILE__, array( <%= prefix %>(), '_activate' ) );
-register_deactivation_hook( __FILE__, array( <%= prefix %>(), '_deactivate' ) );
+register_activation_hook( __FILE__, array( <%= prefix %>(), 'activate' ) );
+register_deactivation_hook( __FILE__, array( <%= prefix %>(), 'deactivate' ) );

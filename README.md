@@ -1,8 +1,3 @@
-# generator-plugin-wp [![Build Status](https://secure.travis-ci.org/WebDevStudios/generator-plugin-wp.png?branch=master)](https://travis-ci.org/WebDevStudios/generator-plugin-wp)
-
-> [Yeoman](http://yeoman.io) generator for WordPress plugins.
-
-<a href="https://webdevstudios.com/contact/"><img src="https://webdevstudios.com/wp-content/uploads/2018/04/wds-github-banner.png" alt="WebDevStudios. WordPress for big brands."></a>
 
 ## Getting Started
 
@@ -20,6 +15,8 @@ To install generator-plugin-wp from npm, run:
 ```bash
 npm install -g generator-plugin-wp
 ```
+
+Clone this repo, cd into the cloned repo folder and run `npm link`
 
 To use generator-plugin-wp, `cd` to your WordPress plugins folder and:
 
@@ -68,26 +65,9 @@ with PHP 5.2 support, run the main generator with the `--php52` option.
 ## CMB2
 CMB2 is included by default with the options sub-generator. It can also be a useful tool with CPT and taxonomy sub-generators using the --cmb2 flag. 
 
-## Adding Packages with Composer
 
-If you chose composer as the autoloader option during the plugin's initiation,
-you can use composer to add additional dependencies.
-
-Let's `cd` into our new plugin's directory and add [CMB2](https://github.com/WebDevStudios/CMB2):
-
-```bash
-composer require webdevstudios/cmb2
-```
-
-CMB2 will now appear under `vendor`
-
-```bash
--plugins
-  -wds-foo-plugin
-    -vendor
-      -webdevstudios
-        -cmb2
-```
+## Forked 
+from WebDevStudios/generator-plugin-wp
 
 ## Contributors
 The following humans contributed to this awesome generator:

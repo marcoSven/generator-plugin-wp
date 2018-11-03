@@ -1,13 +1,6 @@
 <?php
 /**
- * <%= includename %>.
- *
- * @since   <%= version %>
- * @package <%= mainclassname %>
- */
-
-/**
- * Endpoint class.
+ * Endpoint class.<%= includename %>
  *
  * @since   <%= version %>
  * @package <%= mainclassname %>
