@@ -29,21 +29,7 @@ module.exports = base.extend({
   },
 
   configuring: function() {
-    if ( !this.fs.exists( 'Gruntfile.js') ){
-      this.log( 'No Gruntfile.js found, no Grunt tasks added.' );
-      return;
-    }
 
-    if ( this.type === 'SASS' ) {
-      this.gruntfile.insertConfig('sass', "{dist: {options: {sourceMap: true}, files: {'assets/css/" + this.rc.slug + ".css': 'assets/css/sass/styles.scss'}}}");
-      this.gruntfile.registerTask('styles', 'sass');
-    }
-
-    this.gruntfile.insertConfig('cssmin', "{dist: {files: {'assets/css/" + this.rc.slug + ".min.css': 'assets/css/" + this.rc.slug + ".css'}}}");
-    this.gruntfile.insertConfig('usebanner', "{ taskName: { options: { position: 'top', banner: bannerTemplate, linebreak: true }, files: { src: [ 'assets/css/" + this.rc.slug + ".min.css' ] } } }");
-
-    this.gruntfile.registerTask('styles', 'cssmin');
-    this.gruntfile.registerTask('styles', 'usebanner');
   },
 
   writing: function () {

@@ -32,16 +32,14 @@ directory. While in the plugin directory, you can run additional commands
 called sub-generators to automatically generate files to enhance your plugin.
 
 * `yo plugin-wp:include <include-name>` [Basic Include](include/README.md)
-* `yo plugin-wp:cpt <cpt-name>` [Custom Post Type](cpt/README.md)
 * `yo plugin-wp:cli <cli-command-name>` [WP CLI Command](cli/README.md)
-* `yo plugin-wp:taxonomy <taxonomy-name>` [Taxonomy](taxonomy/README.md)
 * `yo plugin-wp:options <options-name>` [Option Page](options/README.md)
 * `yo plugin-wp:widget <widget-name>` [Widget](widget/README.md)
 * `yo plugin-wp:endpoint <class-name>` [WP-API Endpoint](endpoint/README.md)
 * `yo plugin-wp:js` [Javascript](js/README.md)
 * `yo plugin-wp:css` [Styles](css/README.md)
 
-For the names of the include, cpt, options, and widget subgenerators remember
+For the names of the include, options, and widget subgenerators remember
 that the plugin prefix will be added to the class name so no need to include the
 original plugin name there. Think of it as the file name for each instead.
 
@@ -61,9 +59,6 @@ main generator with the `--notests` option.
 
 By default PHP 5.2 is not supported in the generated plugin. To generate a plugin
 with PHP 5.2 support, run the main generator with the `--php52` option.
-
-## CMB2
-CMB2 is included by default with the options sub-generator. It can also be a useful tool with CPT and taxonomy sub-generators using the --cmb2 flag. 
 
 
 ## Forked 

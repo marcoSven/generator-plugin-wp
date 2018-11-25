@@ -327,7 +327,12 @@ module.exports = base.extend({
   },
 
   checkComposerStatus: function() {
-    this.autoloaderList = ['Basic', 'None'];
+    var composerResult = child_process.spawnSync('composer',['--version', '--no-ansi']);
+
+    if ( 0 === composerResult.status) {
+      this.autoloaderList = ['Basic', 'Composer', 'None'];
+    }
+
   },
 
   getLatestWPVersion: function() {
@@ -354,6 +359,11 @@ module.exports = base.extend({
     // If we flagged we want an install, install our dependecies.
     if ( this.options['do-install'] ) {
       this.installDependencies();
+
+      // If we're loading Composer, run a composer install.
+      if ( this.autoloader === 'Composer' ) {
+        this.spawnCommand('composer', ['install']);
+      }
     }
   }
 });

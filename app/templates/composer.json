@@ -1,7 +1,7 @@
 {
 	"name": "<%= slug %>",
 	"description": "<%= descriptionEscaped %>",
-	"keywords": ["wordpress", "plugin", "generator-plugin-wp"],
+	"keywords": ["wordpress", "plugin"],
 	"homepage": "<%= homepage %>",
 	"license": "<%= license %>",
 	"authors": [
@@ -13,7 +13,7 @@
 	"minimum-stability": "dev",
 	"type": "wordpress-plugin",
 	"autoload": {
-		"classmap": ["<%= slug %>.php", "includes/"]
+		"classmap": ["class-<%= slug %>.php", "includes/"]
 	}<%if (php52) { %>,
 	"require": {
 		"php": ">=5.2",
